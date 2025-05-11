@@ -48,7 +48,7 @@
         },
         "status": {
           "type": "string",
-          "enum": ["published", "draft", "scheduled", "sent"]
+          "enum": ["published", "draft", "scheduled", "sent", "hidden"]
         },
         "locale": {
           "type": ["string", "null"],
@@ -132,6 +132,10 @@
         },
         "email_only": {
           "type": "boolean"
+        },
+        "group_id": {
+          "type": ["string", "null"],
+          "maxLength": 24
         },
         "authors": {
           "$ref": "#/definitions/post-authors"
