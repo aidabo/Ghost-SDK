@@ -1,38 +1,25 @@
 # Ghost SDK
+<!-- TOC -->
 
-A collection of tools for interacting with Ghost's APIs.
+- [Ghost SDK](#ghost-sdk)
+    - [Develop](#develop)
+    - [Run](#run)
+    - [Test](#test)
+    - [Publish](#publish)
+    - [Extend GhostSDK/admin-api-schema](#extend-ghostsdkadmin-api-schema)
+- [Copyright & License](#copyright--license)
 
-## Develop
+<!-- /TOC -->rn ship --git-remote upstream` to correctly update tags and version commits, when your remote `origin` is set up to a fork of TryGhost/SDK and original repository is set to `upstream`.
 
-This is a mono repository, managed with [lerna](https://lerna.js.org/).
+## Extend GhostSDK/admin-api-schema
 
-1. `git clone` this repo & `cd` into it as usual
-2. `yarn setup` is mapped to `lerna bootstrap`
-   - installs all external dependencies
-   - links all internal dependencies
+| ファイル      |  | 修正項目                                                                                                                           | 備考          |
+|-----------|--|--------------------------------------------------------------------------------------------------------------------------------|-------------|
+| post.json |  | "status": {<br/>          "type": "string",<br/>          "enum": ["published", "draft", "scheduled", "sent", "hidden"]<br/>}, | hiddenを追加   |
+| post.json |  | "group_id": {<br/>          "type": ["string", "null"],<br/>          "maxLength": 24<br/>},                                   | group_idを追加 |
 
-To add a new package to the repo:
-   - install [slimer](https://github.com/TryGhost/slimer)
-   - run `slimer new <package name>`
-
-## Run
-
-- `yarn dev`
-
-## Test
-
-- `yarn lint` run just eslint
-- `yarn test` run lint and tests
-
-
-## Publish
-
-- `yarn ship` is an alias for `lerna publish`
-    - Publishes all packages which have changed
-    - Also updates any packages which depend on changed packages
-
-NOTE: use `yarn ship --git-remote upstream` to correctly update tags and version commits, when your remote `origin` is set up to a fork of TryGhost/SDK and original repository is set to `upstream`.
 
 # Copyright & License
 
 Copyright (c) 2013-2025 Ghost Foundation - Released under the [MIT license](LICENSE).
+
